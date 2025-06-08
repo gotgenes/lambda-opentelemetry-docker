@@ -1,0 +1,17 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        endpoint: "localhost:4318"
+
+exporters:
+  debug:
+    verbosity: detailed
+  otlphttp:
+    endpoint: "http://oteltui:4318"
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [debug, otlphttp]

@@ -1,0 +1,25 @@
+name: lambda-otel-docker
+
+services:
+  lambda:
+    build:
+      context: .
+      target: otel-lambda
+      tags:
+        - lambda-otel-docker:latest
+    environment:
+      NODE_ENV: production
+      AWS_REGION:
+      AWS_ACCESS_KEY_ID:
+      AWS_SECRET_ACCESS_KEY:
+      AWS_SESSION_TOKEN:
+      OTEL_RESOURCE_ATTRIBUTES: "service.name=lambda-otel-docker"
+      OPENTELEMETRY_COLLECTOR_CONFIG_URI: "file:///var/task/otel-collector-config.yaml"
+    ports:
+      - 9000:8080
+    volumes:
+      - ./otel-collector-config.yaml:/var/task/otel-collector-config.yaml
+  oteltui:
+    image: ymtdzzz/otel-tui:latest
+    stdin_open: true
+    tty: true
