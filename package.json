@@ -8,6 +8,7 @@
     "build": "./scripts/build.sh",
     "publish-docker": "./scripts/publish-docker-image.sh",
     "deploy": "npm run deploy --workspace=cdk",
+    "deploy-ecr": "npm run deploy-ecr --workspace=cdk",
     "build-publish-deploy": "npm-run-all build publish-docker deploy",
     "login": "npm run login --workspace=cdk",
     "login-docker": "./scripts/docker-login.sh",

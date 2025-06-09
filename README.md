@@ -105,18 +105,20 @@ docker compose attach oteltui
 
 ## Deploying to AWS
 
-### Create the ECR repository
+### Log in to Identity Center
 
-Synthesize the CDK app:
+Assuming you have the AWS CLI configured with IAM Identity Center, you can log in with the following command:
 
 ```sh
-npm run build --workspace=cdk
+npm run login
 ```
+
+### Create the ECR repository
 
 Then deploy the Elastic Container Repository stack:
 
 ```sh
-npm run cdk --workspace=cdk -- deploy LambdaOtelDockerContainerRepository
+npm run deploy-ecr
 ```
 
 ### Build and push the Docker image to ECR
