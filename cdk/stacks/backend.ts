@@ -38,7 +38,6 @@ export class BackendStack extends cdk.Stack {
         environment: {
           NODE_ENV: "production",
           PORT: "8080",
-          AWS_LAMBDA_EXEC_WRAPPER: "/opt/bootstrap",
           AWS_LWA_ENABLE_COMPRESSION: "true",
         },
         memorySize: 256,
