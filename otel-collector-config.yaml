@@ -8,10 +8,22 @@ exporters:
   debug:
     verbosity: detailed
   otlphttp:
-    endpoint: "http://oteltui:4318"
+    endpoint: "https://xray.${env:AWS_REGION}.amazonaws.com/"
+    auth:
+      authenticator: sigv4auth
+
+extensions:
+  sigv4auth:
 
 service:
+  extensions: [sigv4auth]
   pipelines:
     traces:
       receivers: [otlp]
       exporters: [debug, otlphttp]
+    metrics:
+      receivers: [otlp]
+      exporters: [debug]
+  telemetry:
+    metrics:
+      address: localhost:8888

@@ -18,7 +18,7 @@ services:
     ports:
       - 9000:8080
     volumes:
-      - ./otel-collector-config.yaml:/var/task/otel-collector-config.yaml
+      - ./otel-collector-config.local.yaml:/var/task/otel-collector-config.yaml
   oteltui:
     image: ymtdzzz/otel-tui:latest
     stdin_open: true

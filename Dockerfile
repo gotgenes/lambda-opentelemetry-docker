@@ -49,3 +49,5 @@ RUN unzip /tmp/opentelemetry-collector-layer-arm64.zip -d ./
 
 FROM instrumented-lambda AS otel-lambda
 COPY --from=otel-lambda-layers /layer /opt/
+COPY otel-collector-config.yaml ./otel-collector-config.yaml
+ENV OPENTELEMETRY_COLLECTOR_CONFIG_URI=file:///var/task/otel-collector-config.yaml
