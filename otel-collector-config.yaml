@@ -24,6 +24,3 @@ service:
     metrics:
       receivers: [otlp]
       exporters: [debug]
-  telemetry:
-    metrics:
-      address: localhost:8888

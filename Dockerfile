@@ -1,6 +1,6 @@
 ARG NODE_VERSION="22"
 ARG NODE_LAMBDA_BASE="public.ecr.aws/lambda/nodejs:${NODE_VERSION}"
-ARG OTEL_COLLECTOR_LAYER_VERSION="0.15.0"
+ARG OTEL_COLLECTOR_LAYER_VERSION="0.16.0"
 ARG OTEL_COLLECTOR_LAYER="https://github.com/open-telemetry/opentelemetry-lambda/releases/download/layer-collector%2F${OTEL_COLLECTOR_LAYER_VERSION}/opentelemetry-collector-layer-arm64.zip"
 ARG OTEL_NODE_LAYER_VERSION="0.15.0"
 ARG OTEL_NODE_LAYER="https://github.com/open-telemetry/opentelemetry-lambda/releases/download/layer-nodejs%2F${OTEL_NODE_LAYER_VERSION}/opentelemetry-nodejs-layer.zip"
